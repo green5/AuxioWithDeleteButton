@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <org.oxycblt.auxio.ui.EdgeCoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.oxycblt.auxio.ui.EdgeAppBarLayout
+            android:id="@+id/search_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            app:liftOnScroll="true"
+            app:liftOnScrollTargetViewId="@id/search_recycler">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/search_toolbar"
+                style="@style/Widget.Auxio.Toolbar.Icon"
+                app:menu="@menu/menu_search">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/search_text_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:endIconContentDescription="@string/desc_clear_search"
+                    app:endIconDrawable="@drawable/ic_close"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="?attr/colorControlNormal"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/search_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/hint_search_library"
+                        android:imeOptions="actionSearch|flagNoExtractUi"
+                        android:inputType="textFilter"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
+                        android:textAppearance="@style/TextAppearance.Auxio.TitleMedium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </org.oxycblt.auxio.ui.EdgeAppBarLayout>
+
+        <org.oxycblt.auxio.ui.EdgeRecyclerView
+            android:id="@+id/search_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            tools:listitem="@layout/item_song" />
+
+    </org.oxycblt.auxio.ui.EdgeCoordinatorLayout>
+</layout>

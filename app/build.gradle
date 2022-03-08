@@ -1,0 +1,127 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
+
+    defaultConfig {
+        applicationId "org.oxycblt.auxio"
+        versionName "2.0.1"
+        versionCode 10
+
+        minSdkVersion 21
+        targetSdkVersion 31
+
+        buildFeatures {
+            dataBinding true
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-DEBUG"
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    // ExoPlayer needs Java 8 to compile.
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += "-Xjvm-default=all"
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+configurations {
+    ktlint
+}
+
+afterEvaluate {
+    preDebugBuild.dependsOn ktlintFormat
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // --- SUPPORT ---
+
+    // General
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "androidx.activity:activity-ktx:1.4.0"
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
+
+    // UI
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.2"
+    implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
+    implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
+
+    // Lifecycle
+    def lifecycle_version = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-common:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+
+    // Media
+    // TODO: Migrate to Media3
+    implementation "androidx.media:media:1.4.3"
+
+    // Preferences
+    implementation "androidx.preference:preference-ktx:1.1.1"
+
+    // --- THIRD PARTY ---
+
+    // ExoPlayer
+    implementation "com.google.android.exoplayer:exoplayer-core:2.16.1"
+
+    // Image loading
+    implementation 'io.coil-kt:coil:2.0.0-alpha05'
+
+    // Material
+    implementation 'com.google.android.material:material:1.5.0-rc01'
+
+    // --- DEBUG ---
+
+    // Lint
+    ktlint 'com.pinterest:ktlint:0.43.2'
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    mainClass.set("com.pinterest.ktlint.Main")
+    classpath = configurations.ktlint
+
+    args "src/**/*.kt"
+}
+check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    mainClass.set("com.pinterest.ktlint.Main")
+    classpath = configurations.ktlint
+
+    args "-F", "src/**/*.kt"
+}

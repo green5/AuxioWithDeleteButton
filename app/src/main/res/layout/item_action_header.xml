@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.HeaderViewHolder">
+
+    <data>
+
+        <variable
+            name="header"
+            type="org.oxycblt.auxio.music.ActionHeader" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/header_title"
+            style="@style/Widget.Auxio.TextView.Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{header.string.resolve(context)}"
+            app:layout_constraintBottom_toTopOf="@id/header_divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Songs" />
+
+        <ImageButton
+            android:id="@+id/header_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ui_small_unbounded_ripple"
+            android:contentDescription="@{context.getString(header.desc)}"
+            android:minWidth="@dimen/size_btn_small"
+            android:minHeight="@dimen/size_btn_small"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:src="@{context.getDrawable(header.icon)}"
+            app:layout_constraintBottom_toTopOf="@id/header_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_sort" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/header_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

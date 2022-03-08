@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Label Namespace | Static Labels -->
+    <string name="lbl_retry">Προσπάθεια εκ νέου</string>
+    <string name="lbl_grant">Χορήγησε</string>
+
+    <string name="lbl_genres">Είδη</string>
+    <string name="lbl_artists">Καλλιτέχνες</string>
+    <string name="lbl_albums">Άλμπουμ</string>
+    <string name="lbl_songs">Τραγούδια</string>
+    <string name="lbl_all_songs">Όλοι Τραγούδια</string>
+
+    <string name="lbl_search">Αναζήτηση</string>
+    <string name="lbl_filter">Φίλτρο</string>
+    <string name="lbl_filter_all">Όλα</string>
+
+    <string name="lbl_sort">Σειρά Διάταξης</string>
+
+    <string name="lbl_play">Αναπαραγωγή</string>
+    <string name="lbl_shuffle">Τυχαία</string>
+    <string name="lbl_playback">Παίζει τώρα</string>
+
+    <string name="lbl_queue">Ουρά αναπαραγωγής</string>
+    <string name="lbl_play_next">Επόμενο</string>
+    <string name="lbl_queue_add">Προσθήκη στην ουρά αναπ/γής</string>
+    <string name="lbl_queue_added">Προστέθηκε ένας τίτλος στην ουρά αναπαραγωγής</string>
+
+    <string name="lbl_go_artist">Πήγαινε στον καλλιτέχνη</string>
+    <string name="lbl_go_album">Πήγαινε στο άλμπουμ</string>
+
+    <string name="lbl_about">Σχετικά με</string>
+    <string name="lbl_version">Έκδοση</string>
+    <string name="lbl_code">Δείτε το στο GitHub</string>
+    <string name="lbl_faq">FAQ</string>
+    <string name="lbl_licenses">Άδειες</string>
+
+    <!-- Settings namespace | Settings-related labels -->
+    <string name="set_title">Ρυθμίσεις</string>
+
+    <string name="set_ui">Εμφάνιση</string>
+    <string name="set_theme">Θέμα</string>
+    <string name="set_theme_auto">Αυτόματο</string>
+    <string name="set_theme_day">Φωτεινό</string>
+    <string name="set_theme_night">Σκοτεινό</string>
+    <string name="set_accent">Χρώμα χαρακτήρων</string>
+
+    <string name="set_quality_covers">Παράληψη των Media Store εξωφύλλων</string>
+
+    <string name="set_audio">Ήχος</string>
+
+    <string name="set_behavior">Συμπεριφορά</string>
+
+    <!-- Description Namespace | Accessibility Strings -->
+    <string name="desc_track_number">Κομμάτι %d</string>
+
+    <string name="desc_play_pause">Αναπαραγωγή/Παύση</string>
+
+    <!-- Hint Namespace | EditText Hints -->
+    <string name="hint_search_library">Αναζήτηση στη βιβλιοθήκη…</string>
+
+    <!-- Color Label namespace | Accent names -->
+    <string name="clr_red">Κόκκινος</string>
+    <string name="clr_pink">Ροζ</string>
+    <string name="clr_purple">Ερυθροκυανός</string>
+    <string name="clr_blue">Γαλάζιος</string>
+    <string name="clr_deep_blue">Ανοιχτός Γαλάζιος</string>
+    <string name="clr_teal">Γαλάζιος Πράσινος</string>
+    <string name="clr_green">Πράσινος</string>
+    <string name="clr_deep_green">Ανοιχτός Πράσινος</string>
+    <string name="clr_lime">Πράσινος Κίτρινος</string>
+    <string name="clr_yellow">Κίτρινος</string>
+    <string name="clr_orange">Πορτοκαλής</string>
+    <string name="clr_brown">Καφέ</string>
+    <string name="clr_grey">Γκρί</string>
+
+    <!-- Format Namespace | Value formatting/plurals -->
+    <string name="fmt_songs_loaded">Τραγούδια φορτώθηκε: %d</string>
+
+    <plurals name="fmt_song_count">
+        <item quantity="one">%d Τραγούδι</item>
+        <item quantity="other">%d Τραγούδια</item>
+    </plurals>
+
+    <plurals name="fmt_album_count">
+        <item quantity="one">%d Άλμπουμ</item>
+        <item quantity="other">%d Άλμπουμ</item>
+    </plurals>
+</resources>

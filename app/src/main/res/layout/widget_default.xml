@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:theme="@style/Theme.Widget"
+    tools:ignore="Overdraw">
+
+    <android.widget.ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.275"
+        android:contentDescription="@string/desc_no_cover"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_auxio"
+        android:tint="?attr/colorPrimary" />
+
+    <android.widget.TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/spacing_medium"
+        android:text="@string/def_playback"
+        android:textAppearance="@style/TextAppearance.Auxio.TitleMidLarge"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textStyle="bold" />
+
+</FrameLayout>

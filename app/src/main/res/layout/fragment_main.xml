@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.oxycblt.auxio.playback.PlaybackLayout
+            android:id="@+id/playback_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/explore_nav_host"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:navGraph="@navigation/nav_explore"
+                tools:layout="@layout/fragment_home" />
+
+        </org.oxycblt.auxio.playback.PlaybackLayout>
+
+        <FrameLayout
+            android:id="@+id/layout_too_small"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorSurface"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.275"
+                android:contentDescription="@string/desc_auxio_icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_auxio" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/spacing_medium"
+                android:text="@string/err_too_small"
+                android:textAppearance="@style/TextAppearance.Auxio.TitleMidLarge"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+    </FrameLayout>
+
+</layout>
